@@ -101,10 +101,70 @@ const myMathObject = {
     },
     primeFactorization: function (number) {
 
+        let inNumber = this.abs(number);    //こっそりabs
+        let calcNum = 2;
+        let div = null;
+        let mod = null;
+        let primeCounter = 0;
+        const retObject = {};
+
+        if (inNumber == 0 || inNumber == 1) {
+            return "0と1以外の数を入力してください"
+        }
+
+        //無限ﾙｰﾌﾟ
+        for (; ;) {
+            div = inNumber / calcNum;
+            mod = inNumber % calcNum;
+
+            //mod=0　割り切れたので継続
+            if (mod === 0) {
+                inNumber = div;
+                primeCounter += 1;
+                retObject[calcNum] = primeCounter;
+            }
+            //割り切れなかったので、割る数をインクリメント
+            else {
+                calcNum++;
+                primeCounter = 0;
+            }
+
+            //div=1 mod=0でこれ以上割り算できないのでループ終了
+            if (div === 1 && mod === 0) {
+                break;
+            }
+
+        }
+        return retObject;
     },
-
 };
-
+test(myMathObject.primeFactorization(1), "0と1以外の数を入力してください");
+test(myMathObject.primeFactorization(2), { 2: 1 });
+test(myMathObject.primeFactorization(3), { 3: 1 });
+test(myMathObject.primeFactorization(4), { 2: 2 });
+test(myMathObject.primeFactorization(5), { 5: 1 });
+test(myMathObject.primeFactorization(6), { 2: 1, 3: 1 });
+test(myMathObject.primeFactorization(200560490130), {
+    2: 1,
+    3: 1,
+    5: 1,
+    7: 1,
+    11: 1,
+    13: 1,
+    17: 1,
+    19: 1,
+    23: 1,
+    29: 1,
+    31: 1,
+});
+test(myMathObject.primeFactorization(900719925474099), {
+    3: 1,
+    53: 1,
+    157: 1,
+    1613: 1,
+    2731: 1,
+    8191: 1,
+});
 
 // これらはテストのサンプルです。下の問題は自分でテストを考えましょう。
 // test(myMathObject.sum(1), 1);
@@ -144,10 +204,10 @@ const myMathObject = {
 // test(myMathObject.floor(4.4), 4);
 // test(myMathObject.floor(5.5), 5);
 
-test(myMathObject.round(1.1), 1);
-test(myMathObject.round(2.2), 2);
-test(myMathObject.round(3.3), 3);
-test(myMathObject.round(4.4), 4);
-test(myMathObject.round(5.5), 6);
-test(myMathObject.round(6.6), 7);
-test(myMathObject.round(7.7), 8);
+// test(myMathObject.round(1.1), 1);
+// test(myMathObject.round(2.2), 2);
+// test(myMathObject.round(3.3), 3);
+// test(myMathObject.round(4.4), 4);
+// test(myMathObject.round(5.5), 6);
+// test(myMathObject.round(6.6), 7);
+// test(myMathObject.round(7.7), 8);

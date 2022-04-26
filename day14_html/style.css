@@ -1,0 +1,22 @@
+.div1 {
+	margin: auto;
+	width: 200px;
+	height: 200px;
+	color: black;
+	background-color: green;
+}
+
+.div2 {
+	margin: auto;
+	width: 300px;
+	color: black;
+	background-color: blue;
+}
+
+.input1 {
+	margin: auto;
+}
+
+.input2 {
+	margin: auto;
+}
