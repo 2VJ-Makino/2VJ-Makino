@@ -23,6 +23,27 @@ function test(actual, expected) {
 
 function domUpper(string) {
     const element = document.querySelector(string);
+    //element.textContent = element.textContent.toUpperCase();
     console.log(element.textContent.toUpperCase());
+
 }
-domUpper("html");
+//domUpper("html");
+
+//document.getElementById("main-header").style.fontSize = "50px";
+
+//document.querySelector(".inner").style.fontSize = "20px";
+
+//inputの追加
+let input_data = document.createElement('input');
+input_data.type = 'button';
+input_data.value = "押して";
+let parent = document.querySelector(".outer");
+parent.appendChild(input_data);
+
+document.querySelector("input").onclick = function () {
+    window.alert("hello");
+};
+
+function clickBtn2() {
+    window.alert("hello");
+}
