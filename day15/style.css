@@ -1,0 +1,20 @@
+#main-header {
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.outer {
+	text-align: center;
+	margin: auto;
+	color: black;
+	background-color: green;
+}
+
+.inner {
+	text-align: center;
+	margin: auto;
+	color: black;
+	background-color: blue;
+}
