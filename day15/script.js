@@ -47,3 +47,6 @@ document.querySelector("input").onclick = function () {
 function clickBtn2() {
     window.alert("hello");
 }
+
+const element = document.querySelector("div");
+console.log(element);
