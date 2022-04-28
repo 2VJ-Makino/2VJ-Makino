@@ -26,6 +26,7 @@ function domUpper(string) {
     //element.textContent = element.textContent.toUpperCase();
     console.log(element.textContent.toUpperCase());
 
+<<<<<<< HEAD
 }
 //domUpper("html");
 
@@ -50,3 +51,26 @@ function clickBtn2() {
 
 const element = document.querySelector("div");
 console.log(element);
+=======
+}
+//domUpper("html");
+
+//document.getElementById("main-header").style.fontSize = "50px";
+
+//document.querySelector(".inner").style.fontSize = "20px";
+
+//inputの追加
+let input_data = document.createElement('input');
+input_data.type = 'button';
+input_data.value = "押して";
+let parent = document.querySelector(".outer");
+parent.appendChild(input_data);
+
+document.querySelector("input").onclick = function () {
+    window.alert("hello");
+};
+
+function clickBtn2() {
+    window.alert("hello");
+}
+>>>>>>> 30f3f1bb770a3fcb3597090c1188c1e2361d0187
