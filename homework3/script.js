@@ -1,22 +1,9 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-const getValueInput = () => {
-    let inputValue1 = document.querySelector(".input1").value;
-    console.log(inputValue1);
-    addRaccoon(inputValue1);
-}
-
-let addRaccoon = (inputValue1) => {
-    let theRaccoonMeter = document.querySelector(".p1");
-    for (let i = 0; i < inputValue1; i++) {
-        theRaccoonMeter.append("🐊");
-    }
-};
-
-
 
 const myMathObject = {
+    //ただの足し算
     sum: function (...num) {
         let result = 0;
         for (const n of num) {
@@ -24,6 +11,7 @@ const myMathObject = {
         }
         return result;
     },
+    //ただの掛け算
     product: function (...num) {
         let result = 1;
         for (const n of num) {
@@ -31,9 +19,11 @@ const myMathObject = {
         }
         return result;
     },
+    //偶数だったらtrueを返す
     isEven: function (num) {
         return num % 2 === 0;
     },
+    //数値配列の数値をすべて足す
     getNumbers: function (...num) {
         const result = [];
         for (const element of num) {
@@ -43,6 +33,7 @@ const myMathObject = {
         }
         return result;
     },
+    //絶対値
     abs: function (num) {
         if (num < 0) {
             return num * -1;
@@ -50,6 +41,7 @@ const myMathObject = {
             return num;
         }
     },
+    //べき乗
     power: function (baseNum, expNum) {
         let result = 1;
         for (let i = 0; i < expNum; i++) {
@@ -57,6 +49,7 @@ const myMathObject = {
         }
         return result;
     },
+    //切り上げ
     ceil: function (number) {
         if (number % 1 === 0) {
             return number;
@@ -64,6 +57,7 @@ const myMathObject = {
             return (number += 1) & number;
         }
     },
+    //切り捨て
     floor: function (number) {
         if (number % 1 === 0) {
             return number;
@@ -71,27 +65,25 @@ const myMathObject = {
             return number & number;
         }
     },
+    //四捨五入
     round: function (number) {
         return this.floor((number + 0.5));
     },
+    //素因数分解
     primeFactorization: function (number) {
-
         let inNumber = this.abs(number);    //こっそりabs
         let calcNum = 2;
         let div = null;
         let mod = null;
         let primeCounter = 0;
         const retObject = {};
-
         if (inNumber == 0 || inNumber == 1) {
             return "0と1以外の数を入力してください"
         }
-
         //無限ﾙｰﾌﾟ
         for (; ;) {
             div = inNumber / calcNum;
             mod = inNumber % calcNum;
-
             //mod=0　割り切れたので継続
             if (mod === 0) {
                 inNumber = div;
@@ -103,15 +95,14 @@ const myMathObject = {
                 calcNum++;
                 primeCounter = 0;
             }
-
             //div=1 mod=0でこれ以上割り算できないのでループ終了
             if (div === 1 && mod === 0) {
                 break;
             }
-
         }
         return retObject;
     },
+    //素数を求める
     getPrimeNumbers: function (number) {
         const retArray = [];
         let div = 0;
@@ -137,6 +128,7 @@ const myMathObject = {
     },
 };
 
+//HLMLからの呼び出し
 const getAbsValue = () => {
     let inputValue = document.querySelector(".abs_input1").value;
     let absElement = document.querySelector(".abs_div2");
@@ -155,18 +147,18 @@ const getPrimeValue = () => {
     primeElement.append("は" + JSON.stringify(myMathObject.getPrimeNumbers(inputValue)) + "です");
 }
 
-const getSpecialValue = () => {
-    let inputValue = document.querySelector(".special_input4").value
-    let specialElement = document.querySelector(".special_div2");
+const getDomValue = () => {
+    let inputValue = document.querySelector(".dom_input4").value
+    let domElement = document.querySelector(".dom_div2");
     let selectedRadio = document.getElementsByName("select");
 
     if (selectedRadio[0].checked) {
         for (let i = 0; i < inputValue; i++) {
-            specialElement.append("🐊");
+            domElement.append("🐊");
         }
     } else if (selectedRadio[1].checked) {
         for (let i = 0; i < inputValue; i++) {
-            specialElement.append("😈");
+            domElement.append("😈");
         }
     } else {
         document.write('<img src="https://bandai-hobby.net/images/153_4706_s_8f7igxlx6blmt7dg964m57fgbgtm.jpg">');
