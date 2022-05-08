@@ -1,0 +1,184 @@
+/* index.htmlのCSS */
+.form1 {
+	text-align: center;
+	font-size: 30px;
+	font-family: "Meiryo UI";
+}
+
+.div1 {
+	margin: auto;
+	font-size: 200%;
+}
+
+.input1 {
+	text-align: center;
+	font-size: 150%;
+	width: 100px;
+	color: black;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px;
+	background: aqua;
+	border-radius: 20px;
+}
+
+.input2 {
+	text-align: center;
+	font-size: 150%;
+	width: 100px;
+	color: white;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px;
+	background: green;
+	border-radius: 20px;
+}
+
+.input3 {
+	text-align: center;
+	font-size: 150%;
+	width: 100px;
+	color: white;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px;
+	background: gold;
+	border-radius: 20px;
+
+}
+
+.input3 {
+	text-align: center;
+	font-size: 150%;
+	width: 100px;
+	color: black;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px;
+	background: yellow;
+	border-radius: 20px;
+
+}
+
+.input4 {
+	text-align: center;
+	font-size: 150%;
+	width: 100px;
+	color: white;
+	text-align: center;
+	display: block;
+	padding: 10px 0 10px;
+	background: salmon;
+	border-radius: 20px;
+
+}
+
+.content {
+	width: 400px;
+	height: 200px;
+	background: linear-gradient(to top, turquoise, royalblue);
+}
+
+
+
+.inner1 {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.inner2 {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+/* /absの設定 */
+.abs_content {
+	font-size: 150%;
+	width: 400px;
+	height: 200px;
+	background: linear-gradient(to top, white, aqua);
+}
+
+.abs_input1 {
+	font-size: 150%;
+	width: 200px;
+	text-align: right;
+}
+
+.abs_input2 {
+	font-size: 100%;
+	width: 100px;
+	color: white;
+	background: green;
+}
+
+/* primeFactの設定 */
+.primeFact_content {
+	font-size: 150%;
+	width: 400px;
+	height: 200px;
+	background: linear-gradient(to top, white, green);
+}
+
+.primeFact_input1 {
+	font-size: 150%;
+	width: 200px;
+	text-align: right;
+}
+
+.primeFact_input2 {
+	font-size: 100%;
+	width: 100px;
+	color: white;
+	background: green;
+
+}
+
+/* primeの設定 */
+.prime_content {
+	font-size: 150%;
+	width: 400px;
+	height: 200px;
+	background: linear-gradient(to top, white, yellow);
+}
+
+.prime_input1 {
+	font-size: 150%;
+	width: 200px;
+	text-align: right;
+}
+
+.prime_input2 {
+	font-size: 100%;
+	width: 100px;
+	color: white;
+	background: green;
+
+}
+
+/* domの設定 */
+.dom_content {
+	font-size: 150%;
+	width: 400px;
+	height: 200px;
+	background: linear-gradient(to top, white, salmon);
+}
+
+.dom_input4 {
+	font-size: 150%;
+	width: 200px;
+	text-align: right;
+}
+
+.dom_input5 {
+	font-size: 100%;
+	width: 100px;
+	color: white;
+	background: green;
+}
