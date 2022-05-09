@@ -1,213 +1,143 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-// let actual;
-// let expected;
+// function doubleArray(array) {
 
-// //配列用のテスト関数
-// function test(actual, expected) {
+//     const result = [];
 
-//     if (JSON.stringify(actual) === JSON.stringify(expected)) {
-//         console.log("  actual:", actual);
-//         console.log("expected:", expected);
-//         console.log("Test PASSED!");
-//     } else {
-//         console.error("Test FAILED. Keep trying!");
-//         console.group("Result:");
-//         console.log("  actual:", actual);
-//         console.log("expected:", expected);
-//         console.groupEnd("Result:");
+//     for (const element of array) {
+//         result.push(element * 2);
 //     }
+//     return result;
 // }
 
+// console.log(doubleArray([2, 3, 4, 5, 6]));
 
-//ウォームアップ
-//引数に x を取り、関数を返す divide という関数を作成してください。
-//内部関数は引数に y をとり、x を y で割った値を返すようにしてください。
+// function squaredArray(array) {
+
+//     const result = [];
+
+//     for (const element of array) {
+//         result.push(element ** 2);
+//     }
+//     return result;
+// }
+
+// console.log(squaredArray([2, 3, 4, 5, 6]));
+
+//基礎演習
+// 関数 getGreeting を宣言してください。
+// この関数は.map メソッドに実行されているという点に注目してください。なお、関数内で.map メソッドを使用しては いけません。
 
 // /**
-// * @param {number} x
-// * @returns {(y: number) => number} 引数として y を取り、x を y で割った値を返す関数
-// */
-// function divide(x) {
-//     let x = number;
-//     return function (y) {
-//         return x / y;
-//     }
+//  * @param {string} ???
+//  * @returns {string} 与えられた引数に挨拶文を追加した文字列
+//  */
+// function getGreeting(person) {
+//     return "Hello, " + person + ".";
 // }
 
-// const divide2 = divide(2);
+// test(["zeno", "yanis", "xander"].map(getGreeting), [
+//     "Hello, zeno.",
+//     "Hello, yanis.",
+//     "Hello, xander.",
+// ]);
 
-// test(divide2(4), 0.5);
-// test(divide(2)(1), 2);
+// 関数 abs を宣言してください。
+// この関数は.map メソッドに実行されているという点に注目してください。
+// なお、関数内で.map メソッドを使用しては いけません。
 
-const myMathObject = {
-    sum: function (...num) {
-        let result = 0;
-        for (const n of num) {
-            result += n;
-        }
-        return result;
-    },
-    product: function (...num) {
-        let result = 1;
-        for (const n of num) {
-            result *= n;
-        }
-        return result;
-    },
-    isEven: function (num) {
-        return num % 2 === 0;
-    },
-    getNumbers: function (...num) {
-        const result = [];
-        for (const element of num) {
-            if (typeof element === "number") {
-                result.push(element);
-            }
-        }
-        return result;
-    },
-    abs: function (num) {
-        if (num <= 0) {
-            return num * -1;
-        } else {
-            return num;
-        }
-    },
-    power: function (baseNum, expNum) {
-        let result = 1;
-        for (let i = 0; i < expNum; i++) {
-            result *= baseNum;
-        }
-        return result;
-    },
-    ceil: function (number) {
-        if (number % 1 === 0) {
-            return number;
-        } else {
-            return (number += 1) & number;
-        }
-    },
-    floor: function (number) {
-        if (number % 1 === 0) {
-            return number;
-        } else {
-            return number & number;
-        }
-    },
-    round: function (number) {
-        return this.floor((number + 0.5));
-    },
-    primeFactorization: function (number) {
+// /**
+//  * @param {number} ???
+//  * @returns {number} 与えられた引数の絶対値
+//  */
+// function abs(num) {
+//     // if (num < 0) {
+//     //     return num * -1;
+//     // }
+//     // return num;
 
-        let inNumber = this.abs(number);    //こっそりabs
-        let calcNum = 2;
-        let div = null;
-        let mod = null;
-        let primeCounter = 0;
-        const retObject = {};
+//     return Math.abs(num);
+// }
+// test([1, 2, 3].map(abs), [1, 2, 3]);
+// test([-1, -2, -3].map(abs), [1, 2, 3]);
+// test([-1, 2, -3].map(abs), [1, 2, 3]);
 
-        if (inNumber == 0 || inNumber == 1) {
-            return "0と1以外の数を入力してください"
-        }
+// 関数 getIncrementedNumbers を宣言してください。
+// この関数では.map メソッドを 使用してください 。
+// ヘルパー関数（この関数を補助する関数）を書く必要があるかもしれませんが、無名関数で書いてもかまいません。
 
-        //無限ﾙｰﾌﾟ
-        for (; ;) {
-            div = inNumber / calcNum;
-            mod = inNumber % calcNum;
+// /**
+//  * @param {Array<number>} ???
+//  * @returns {Array<number>} 与えられた配列の各要素に 1 を足した数を要素として持つ、新しい配列
+//  */
+// function getIncrementedNumbers(array) {
+//     return array.map(function (elem) { return elem + 1; })
+// }
 
-            //mod=0　割り切れたので継続
-            if (mod === 0) {
-                inNumber = div;
-                primeCounter += 1;
-                retObject[calcNum] = primeCounter;
-            }
-            //割り切れなかったので、割る数をインクリメント
-            else {
-                calcNum++;
-                primeCounter = 0;
-            }
+// test(getIncrementedNumbers([1, 2, 3]), [2, 3, 4]);
+// test(getIncrementedNumbers([-1, -2, -3]), [0, -1, -2]);
 
-            //div=1 mod=0でこれ以上割り算できないのでループ終了
-            if (div === 1 && mod === 0) {
-                break;
-            }
+// const array1 = [0, 0, 0];
+// test(getIncrementedNumbers(array1), [1, 1, 1]);
+// // 元の配列が変更されていないことを確認してください
+// test(array1, [0, 0, 0]);
+// 中級演習
+// 関数 getSwitched を宣言してください。
+// この関数は.map メソッドを 使用してください 。
+// ヘルパー関数を書く必要があるかもしれませんが、無名関数を使って書いてもかまいません。
 
-        }
-        return retObject;
-    },
-};
-test(myMathObject.primeFactorization(1), "0と1以外の数を入力してください");
-test(myMathObject.primeFactorization(2), { 2: 1 });
-test(myMathObject.primeFactorization(3), { 3: 1 });
-test(myMathObject.primeFactorization(4), { 2: 2 });
-test(myMathObject.primeFactorization(5), { 5: 1 });
-test(myMathObject.primeFactorization(6), { 2: 1, 3: 1 });
-test(myMathObject.primeFactorization(200560490130), {
-    2: 1,
-    3: 1,
-    5: 1,
-    7: 1,
-    11: 1,
-    13: 1,
-    17: 1,
-    19: 1,
-    23: 1,
-    29: 1,
-    31: 1,
-});
-test(myMathObject.primeFactorization(900719925474099), {
-    3: 1,
-    53: 1,
-    157: 1,
-    1613: 1,
-    2731: 1,
-    8191: 1,
-});
+// /**
+//  * @param {Array<number|string>} ???
+//  * @returns {Array<number|string>} 与えられた配列の各要素が数値型なら文字列型に、文字列型なら数値型に変換したものが入った、新しい配列
+//  */
+// function getSwitched(array) {
+//     return array.map(function (elem) {
+//         if (typeof elem === "string") {
+//             return Number(elem);
+//         } else if (typeof elem === "number") {
+//             return String(elem);
+//         }
+//     })
+// }
+// test(getSwitched([1, 2, 3]), ["1", "2", "3"]);
+// test(getSwitched(["1", "2", "3"]), [1, 2, 3]);
+// test(getSwitched(["1", 2, "3"]), [1, "2", 3]);
 
-// これらはテストのサンプルです。下の問題は自分でテストを考えましょう。
-// test(myMathObject.sum(1), 1);
-// test(myMathObject.sum(1, 2, 3), 6);
+// 応用演習
+// この演習では、講義で説明されたことのないテクニックを
+// 使用する必要があるかもしれません。
+// 関数 multiplyByIndex を宣言してください。
 
-// test(myMathObject.product(1), 1);
-// test(myMathObject.product(1, 2, 4), 8);
+// /**
+//  * @param {Array<number>} ???
+//  * @returns {Array<number>} 与えられた配列の各要素とそのインデックスを掛け合わせた数字が要素として入った、新たな配列
+//  */
+// function multiplyByIndex(array) {
+//     return array.map(function (element, index) {
+//         return element * index;
+//     })
+// }
+// test(multiplyByIndex([1, 2, 3]), [0, 2, 6]);
+// test(multiplyByIndex([2, 3, 4]), [0, 3, 8]);
+// test(multiplyByIndex([-3, -4, -5]), [-0, -4, -10]);
 
-// test(myMathObject.isEven(1), false);
-// test(myMathObject.isEven(2), true);
+//関数 feedback を宣言してください。
 
-// test(myMathObject.sum(19283, 18475, 199999), 237757);
-// test(myMathObject.product(19283, 18475, 199999), 71250328746575);
+/**
+ * @param {Array<any>} ???
+ * @param {Function} ??? - 実行したい関数
+ * @param {number} ??? - 関数を実行したい回数
+ * @returns {Array<any>} 与えられた配列の各要素に、実行したい回数だけ関数を実行した結果が入った、新しい配列
+ */
+function feedback(array, func, num) {
+    return array.map(fun)
+}
 
-// test(myMathObject.getNumbers(1, 2, 3, 4), [1, 2, 3, 4]);
-// test(myMathObject.getNumbers("foo", 3, "4", "hi", 1), [3, 1]);
+function double(element) {
+    return element * 2;
+}
 
-// test({ a: "A", b: "B" }, { b: "B", a: "A" });
-
-// test(myMathObject.abs(1), 1);
-// test(myMathObject.abs(-1), 1);
-// test(myMathObject.abs(435678.745389), 435678.745389);
-// test(myMathObject.abs(-675843.753489), 675843.753489);
-// test(myMathObject.power(2, 3), 8);
-// test(myMathObject.power(4, 2), 16);
-
-// test(myMathObject.ceil(1.0), 1);
-// test(myMathObject.ceil(1.1), 2);
-// test(myMathObject.ceil(2.2), 3);
-// test(myMathObject.ceil(3.3), 4);
-// test(myMathObject.ceil(4.4), 5);
-// test(myMathObject.ceil(5.5), 6);
-
-// test(myMathObject.floor(1.1), 1);
-// test(myMathObject.floor(2.2), 2);
-// test(myMathObject.floor(3.3), 3);
-// test(myMathObject.floor(4.4), 4);
-// test(myMathObject.floor(5.5), 5);
-
-// test(myMathObject.round(1.1), 1);
-// test(myMathObject.round(2.2), 2);
-// test(myMathObject.round(3.3), 3);
-// test(myMathObject.round(4.4), 4);
-// test(myMathObject.round(5.5), 6);
-// test(myMathObject.round(6.6), 7);
-// test(myMathObject.round(7.7), 8);
+test(feedback([1, 2, 3], double, 1), [2, 4, 6]);
+test(feedback([1, 2, 3], double, 2), [4, 8, 12]);
+test(feedback([1, 2, 3], double, 8), [256, 512, 768]);
