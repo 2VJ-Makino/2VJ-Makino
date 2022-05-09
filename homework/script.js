@@ -1,105 +1,95 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-//テスト部分を関数化 削除しない
-let actual;
-let expected;
+//lesson6 dig-functions-comparisons-conditionals-review.ja.mdの 😈
 
-//配列以外のテスト関数
-function testFunction(actual, expected) {
+// 関数 getNumberName を宣言してください。例を下に挙げます。
 
-    if (actual === expected) {
-        console.log("Test PASSED!");
-    } else {
-        console.error("Test FAILED. Keep trying!");
-        console.group("Result:");
-        console.log("  actual:", actual);
-        console.log("expected:", expected);
-        console.groupEnd();
-    }
+// -123: negative one hundred twenty three
+// …
+// 0: zero
+// 1: one
+// 2: two
+// …
+// 10: ten
+// …
+// 100: one hundred
+// …
+// 1345: one thousand three hundred forty five
+/**
+ * @param {number} ??? - 数値。その名前がアルファベットの形で返ることになる
+ * @returns {number} 与えられた数値をアルファベットで記した時の名前
+ */
+const digit = {
+    0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine",
+    10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen",
+    20: "twenty", 30: "thirty", 40: "forty", 50: "fifty", 60: "sixty", 70: "seventy", 80: "eighty", 90: "ninety",
+    100: "hundred", 1000: "thousand"
 }
 
-//配列用のテスト関数
-function test(actual, expected) {
+function getNumberName(number) {
 
-    if (JSON.stringify(actual) === JSON.stringify(expected)) {
-        console.log("  actual:", actual);
-        console.log("expected:", expected);
-        console.log("Test PASSED!");
-    } else {
-        console.error("Test FAILED. Keep trying!");
-        console.group("Result:");
-        console.log("  actual:", actual);
-        console.log("expected:", expected);
-        console.groupEnd("Result:");
+    let result = "";
+    let div1 = 0;
+    let mod1 = 0;
+    let div2 = 0;
+    let mod2 = 0;
+
+    //入力値のチェック
+    //負の場合はnegativeを先頭につけて、値は絶対値で計算
+    if (number < 0) {
+        number = Math.abs(number);
+        result = "negative ";
     }
+
+    //100未満
+    if (number < 100) {
+        div1 = number / 10;
+        mod1 = number % 10;
+        if (number >= 20) {
+            //10の倍数以外(余りがある)
+            if (mod1 !== 0) {
+                result += digit[Math.floor(div1) * 10] + " " + digit[mod1];
+            }
+            else {
+                result += digit[Math.floor(div1) * 10];
+            }
+        }
+        //19以下はそのままdigitから値をもってくる
+        else {
+            result += digit[number];
+        }
+    }
+    //100以上、1000未未満
+    else if (number >= 100 && number < 1000) {
+
+        div2 = number / 100;
+        mod2 = number % 100;
+        div1 = number / 10;
+        mod1 = number % 10;
+
+        //100の倍数以外(余りがある)
+        if (mod2 !== 0) {
+            //10の桁が0(10の桁は何も表示しない)
+            if (mod2 < 10) {
+                result += digit[Math.floor(div2)] + " hundred " + digit[mod1];
+            }
+            //10の桁が0でない
+            else {
+                result += digit[Math.floor(div2)] + " hundred " + digit[Math.floor(div1 / 10) * 10] + " " + digit[mod1];
+            }
+        }
+        //100の倍数
+        else {
+            result += digit[Math.floor(div2)] + " hundred";
+        }
+    }
+    //それ以上
+    else {
+        result = "9999以下の数値を入力してください";
+    }
+
+    return result;
 }
 
-// // //ウォームアップ
-// const obj1 = { a: "A" };
-// const obj2 = { a: "A", b: 2 };
-// const obj3 = { a: "A", b: 2, c: "C", d: true };
-// const obj4 = { a: "A", c: "C" };
-
-// /**
-//  * @param {object} オブジェクト
-//  * @returns {{ [key: string]: string }} 与えられたオブジェクトによく似たオブジェクト。ただし、値が文字列のキー/値ペアだけを持つ。
-//  */
-// function filterObjectForStrings(object) {
-
-//     const retObject = {};
-
-//     for (const key in object) {
-//         if (typeof object[key] === "string") {
-//             retObject[key] = object[key];
-//         }
-//     }
-//     return retObject;
-
-// }
-// // test(filterObjectForStrings(obj1), obj1); // 変化なし
-// // test(filterObjectForStrings(obj2), obj1); // キーが "b" のペアは含まれていない
-// // test(filterObjectForStrings(obj3), obj4); // キーが "b" や "d" のペアは含まれていない
-
-// //関数 filterArrayForStrings を宣言してください。 1 問目で作った関数 を使ってください。
-// /**
-//  * @param {Array<object>} arrayOfObjects - オブジェクトの入った配列
-//  * @returns {Array<{ [key: string]: string }>} 与えられたすべてのオブジェクトの入った配列だが、各オブジェクトには、値が文字列であるキー/値ペアだけが含まれる。
-//  */
-// function filterArrayForStrings(arrayOfObjects) {
-
-//     const retArray = [];
-//     for (const element of arrayOfObjects) {
-//         retArray.push(filterObjectForStrings(element));
-//     }
-//     return retArray;
-// }
-// test(filterArrayForStrings([obj1]), [obj1]); // 変化なし
-// // 2 番目の要素からキー が "b" のペアは除くこと
-// test(filterArrayForStrings([obj1, obj2]), [obj1, obj1]);
-// test(filterArrayForStrings([obj3, obj2, obj1]), [obj4, obj1, obj1]);
-
-// /**
-//  * @param {Array<object>} ??? - オブジェクトの入った配列
-//  * @param {string} キー
-//  * @returns {Array<any>} 各オブジェクトの中から、与えられたキーに等しいキーに対応する値だけを拾って（＝ pluck して）、配列に入れたもの
-//  */
-// function pluck(arrayObject, selectedKey) {
-
-//     const retArray = [];
-
-//     for (const element of arrayObject) {
-
-//         retArray.push(element[selectedKey]);
-//     }
-//     return retArray;
-// }
-
-// const arrayOfObjects = [
-//     { a: 1, b: 2, c: 3 },
-//     { a: 4, b: 5, c: 6 },
-//     { a: 7, b: 8, c: 9 },
-// ];
-
-// test(pluck(arrayOfObjects, "a"), [1, 4, 7]);
-
+test(getNumberName(-999), "eleven");
