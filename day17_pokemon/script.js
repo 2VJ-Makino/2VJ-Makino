@@ -1,8 +1,8 @@
 'use strict'
 // Please don't delete the 'use strict' line above
 
-console.log(allPokemon);
-console.log(allPokemon.length);
+// console.log(allPokemon);
+// console.log(allPokemon.length);
 
 // 基本演習
 // 1.データ中のすべてのポケモンの名前を要素に持つ配列を返す、関数 getNames を宣言してください。
@@ -23,19 +23,19 @@ console.log(allPokemon.length);
 // 2.与えられた名前を持つポケモンのオブジェクトを返す、関数 getPokemonByName を宣言してください。
 
 /**
- * @param {string} ??? - ポケモンの名前
- * @returns {object} 与えられた名前を持つポケモンのオブジェクト
- */
-function getPokemonByName(name) {
-	let result = {};
-	allPokemon.map(function (obj) {
-		if (obj["Name"] === name) {
-			// console.log(obj);
-			result = obj;
-		}
-	})
-	return result;
-}
+//  * @param {string} ??? - ポケモンの名前
+//  * @returns {object} 与えられた名前を持つポケモンのオブジェクト
+//  */
+// function getPokemonByName(name) {
+// 	let result = {};
+// 	allPokemon.map(function (obj) {
+// 		if (obj["Name"] === name) {
+// 			// console.log(obj);
+// 			result = obj;
+// 		}
+// 	})
+// 	return result;
+// }
 
 // test(getPokemonByName("Pikachu"), getPokemonByNameExpected);
 
@@ -85,33 +85,56 @@ function getPokemonByName(name) {
 //  * @returns {Array<string>} 与えられた技に耐性がある、すべてのポケモンの名前が入った配列
 //  */
 // function getResistantPokemonNames(attack) {
-//     let result = [];
-//     allPokemon.map(function (obj) {
-//         obj.Resistant.map(function (elem) {
-//             if (elem === attack) {
-//                 result.push(obj.Name);
-//             }
-//         })
-//     })
-//     return result;
+// 	let result = [];
+// 	allPokemon.map(function (obj) {
+// 		obj.Resistant.map(function (elem) {
+// 			if (elem === attack) {
+// 				result.push(obj.Name);
+// 			}
+// 		})
+// 	})
+// 	return result;
 // }
 
-// test(getResistantPokemonNames("Ice"), getResistantPokemonNamesExpected);
+//test(getResistantPokemonNames("Ice"), getResistantPokemonNamesExpected);
 
 // 6.weakness（弱点）をキー、その弱点を持つポケモンの数を値とするオブジェクトを返す、関数 getWeaknessCounts を宣言してください。
+// let weaknessCounts = {
+// 	Fire: 0,
+// 	Ice: 0,
+// 	Flying: 0,
+// 	Psychic: 0,
+// 	Water: 0,
+// 	Ground: 0,
+// 	Rock: 0,
+// 	Electric: 0,
+// 	Grass: 0,
+// 	Fighting: 0,
+// 	Poison: 0,
+// 	Steel: 0,
+// 	Bug: 0
+// };
+// /**
+//  * @returns {{ [weakness: string]: number }} 弱点とその弱点を持つポケモンの数の組み合わせをキー/値のペアで表現したオブジェクト
+//  */
+// function getWeaknessCounts() {
+
+// 	allPokemon.map(function (obj) {
+// 		for (let element of obj.Weaknesses) {
+// 			weaknessCounts[element] += 1;
+// 		}
+// 	})
+// 	return weaknessCounts;
+// }
+// test(getWeaknessCounts(), getWeaknessCountsExpected);
 
 /**
- * @returns {{ [weakness: string]: number }} 弱点とその弱点を持つポケモンの数の組み合わせをキー/値のペアで表現したオブジェクト
+ * @returns {Array<string>} データ中のすべてのポケモンの名前を要素に持つ配列
  */
-function getWeaknessCounts() {
-	let result = {};
-	allPokemon.map(function (obj) {
-		obj.weakness.map(function (elem) {
-			if (elem === attack) {
-				result.push(obj.Name);
-			}
-		})
-	})
+
+function getNames() {
+	const result = [];
+	allPokemon.forEach(obj => result.push(obj.Name));
 	return result;
 }
-test(getWeaknessCounts(), getWeaknessCountsExpected);
+test(getNames(), getNamesExpected);

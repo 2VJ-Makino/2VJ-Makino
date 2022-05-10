@@ -118,23 +118,158 @@
  * @param {Array<string>} ???
  * @returns {Array<string>} 与えられた配列の中にある、大文字で始まり、疑問符で終わる文字列のみを要素として持つ配列
  */
-const getQuestions = array => array.filter(element => element[0].toUpperCase() === element[0] && element[element.length - 1] === "?")
+// const getQuestions = array => array.filter(element => element[0].toUpperCase() === element[0] && element[element.length - 1] === "?")
 
-// return array.filter(function (element) {
-//     return element[0].toUpperCase() === element[0] && element[element.length - 1] === "?";
+// // return array.filter(function (element) {
+// //     return element[0].toUpperCase() === element[0] && element[element.length - 1] === "?";
+// // })
+
+// const arrayOfStrings3 = [
+//     "Hi, there.",
+//     "What in the world?",
+//     "My name is JavaScript",
+//     "Do you want to know a secret?",
+// ];
+
+// test(getQuestions(arrayOfStrings3), [
+//     "What in the world?",
+//     "Do you want to know a secret?",
+// ]);
+// test(getQuestions(arrayOfStrings3.slice(2)), [
+//     "Do you want to know a secret?",
+// ]);
+
+
+// 関数 getOddLengthCapitalWords を宣言してください。
+
+/**
+ * @param {Array<string>} ???
+ * @returns {Array<string>} 与えられた配列の中にある、長さが奇数で、
+ * 　　　　　　　　　　　　　　文字がすべて大文字の文字列のみを要素として持つ配列
+ */
+// const getOddLengthCapitalWords = array => array.filter(element => element.length % 2 !== 0 && element.toUpperCase() === element);
+
+// return array.filter(function(element){
+//   return element.length % 2 !== 0 && element.toUpperCase() === element
 // })
 
-const arrayOfStrings3 = [
-    "Hi, there.",
-    "What in the world?",
-    "My name is JavaScript",
-    "Do you want to know a secret?",
-];
+// let result = [];
+// for (let element of array) {
+//   if (element.length % 2 !== 0 && element.toUpperCase() === element) {
+//     result.push(element);
+//   }
+// } return result;
 
-test(getQuestions(arrayOfStrings3), [
-    "What in the world?",
-    "Do you want to know a secret?",
-]);
-test(getQuestions(arrayOfStrings3.slice(2)), [
-    "Do you want to know a secret?",
-]);
+
+// 長さが奇数の場合、2で割ってあまり0でない場合、.push 
+// かつ文字列のすべての文字を大文字に変換したものと元の文字列を比較しイコールなら　.push　
+
+
+
+// const arrayOfStrings4 = ["SNAKE", "APPLES", "Peaches", "PUMPKINPIES"];
+
+// test(getOddLengthCapitalWords(arrayOfStrings4), ["SNAKE", "PUMPKINPIES"]);
+// test(getOddLengthCapitalWords(arrayOfStrings4.slice(1)), ["PUMPKINPIES"]);
+
+
+
+// 関数 intersection を宣言してください。
+// ここでは Lodash のメソッドを 使用しないで 実装しましょう。
+
+/**
+ * @param {Array<any>} ???
+ * @param {Array<any>} ???
+ * @returns {Array<any>} 与えられた配列の両方に存在する要素だけが入った配列
+ */
+// function intersection(array1, array2) {
+
+//     let result = [];
+//     for (let element1 of array1) {
+//         for (let element2 of array2) {
+//             if (element1 === element2) {
+//                 result.push(element1);
+//             }
+//         }
+//     }
+//     return result;
+// }
+
+// function intersection(array1, array2) {
+
+//     let result = [];
+//     let temp = 0;
+//     for (let element1 of array1) {
+//         temp = (array2.filter(function (element) {
+//             return element1 === element;
+//         }))
+//         if (temp.length !== 0) {
+//             result.push(Number(temp));
+//         }
+//     }
+//     return result;
+// }
+//filterは対象となるモノが無い場合はカラの配列を返すので安易なPushは注意
+// function intersection(array1, array2) {
+
+//     let result = [];
+//     let temp = 0;
+//     for (let element1 of array1) {
+//         temp = (array2.filter(function (element) {
+//             return element1 === element;
+//         }))
+//         if (temp.length !== 0) {
+//             result.push(Number(temp));
+//         }
+//     }
+//     return result;
+// }
+// test(intersection([1, 2, 3], [1, 2, 3]), [1, 2, 3]);
+// test(intersection([1, 2, 3], [2, 3, 4]), [2, 3]);
+// test(intersection([1, 2, 3], [3, 4, 5]), [3]);
+// test(intersection([1, 2, 3], [4, 5, 6]), []);
+
+//filterは対象となるモノが無い場合はカラの配列を返すので安易なPushは注意
+// function intersection(array1, array2) {
+
+//     let result = [];
+//     let temp = 0;
+//     for (let element1 of array1) {
+//         temp = (array2.filter(function (element) {
+//             return element1 === element;
+//         }))
+//         if (temp.length !== 0) {
+//             result.push(Number(temp));
+//         }
+//     }
+//     return result;
+// }
+// test(intersection([1, 2, 3], [1, 2, 3]), [1, 2, 3]);
+// test(intersection([1, 2, 3], [2, 3, 4]), [2, 3]);
+// test(intersection([1, 2, 3], [3, 4, 5]), [3]);
+// test(intersection([1, 2, 3], [4, 5, 6]), []);
+
+// // 応用演習
+// // 関数 intersection を 任意の数の引数 を取るように変更してください。
+
+// /**
+//  * @param {...Array<any>} ??? - 任意の数の配列
+//  * @returns {Array<any>} 与えられた配列のすべてに共通する要素だけが入った配列
+//  */
+
+// function intersections(...array) {
+
+//     console.log(array);
+//     console.log(array.length);
+//     return array.length;
+
+// }
+
+// // }
+
+// test(intersections([1, 2, 3], [1, 2, 3], [1, 2, 3]), [1, 2, 3]);
+// test(intersections([1, 2, 3], [2, 3, 4], [3, 4, 5]), [3]);
+// test(intersections([1, 2, 3], [3, 4, 5], [6]), []);
+// test(
+//     intersections([1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [4, 5, 6]),
+//     []
+// );

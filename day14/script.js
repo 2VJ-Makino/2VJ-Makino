@@ -138,33 +138,33 @@ const myMathObject = {
         return retObject;
     },
 };
-test(myMathObject.primeFactorization(1), "0と1以外の数を入力してください");
-test(myMathObject.primeFactorization(2), { 2: 1 });
-test(myMathObject.primeFactorization(3), { 3: 1 });
-test(myMathObject.primeFactorization(4), { 2: 2 });
-test(myMathObject.primeFactorization(5), { 5: 1 });
-test(myMathObject.primeFactorization(6), { 2: 1, 3: 1 });
-test(myMathObject.primeFactorization(200560490130), {
-    2: 1,
-    3: 1,
-    5: 1,
-    7: 1,
-    11: 1,
-    13: 1,
-    17: 1,
-    19: 1,
-    23: 1,
-    29: 1,
-    31: 1,
-});
-test(myMathObject.primeFactorization(900719925474099), {
-    3: 1,
-    53: 1,
-    157: 1,
-    1613: 1,
-    2731: 1,
-    8191: 1,
-});
+// test(myMathObject.primeFactorization(1), "0と1以外の数を入力してください");
+// test(myMathObject.primeFactorization(2), { 2: 1 });
+// test(myMathObject.primeFactorization(3), { 3: 1 });
+// test(myMathObject.primeFactorization(4), { 2: 2 });
+// test(myMathObject.primeFactorization(5), { 5: 1 });
+// test(myMathObject.primeFactorization(6), { 2: 1, 3: 1 });
+// test(myMathObject.primeFactorization(200560490130), {
+//     2: 1,
+//     3: 1,
+//     5: 1,
+//     7: 1,
+//     11: 1,
+//     13: 1,
+//     17: 1,
+//     19: 1,
+//     23: 1,
+//     29: 1,
+//     31: 1,
+// });
+// test(myMathObject.primeFactorization(900719925474099), {
+//     3: 1,
+//     53: 1,
+//     157: 1,
+//     1613: 1,
+//     2731: 1,
+//     8191: 1,
+// });
 
 // これらはテストのサンプルです。下の問題は自分でテストを考えましょう。
 // test(myMathObject.sum(1), 1);
@@ -211,3 +211,33 @@ test(myMathObject.primeFactorization(900719925474099), {
 // test(myMathObject.round(5.5), 6);
 // test(myMathObject.round(6.6), 7);
 // test(myMathObject.round(7.7), 8);
+
+// //関数 incrementNumbers を宣言してください。
+// /**
+//  * @param {{ [key: string]: number }} ???
+//  * @returns {{ [key: string]: number }} 与えられたオブジェクトと同じ値を持つが、数値には 1 が足されたオブジェクト
+//  */
+// function incrementNumbers(object) {
+
+//     for (let key in object) {
+//         if (typeof object[key] === "number") {
+//             object[key] += 1;
+//         }
+//     }
+//     return object;
+// }
+
+
+
+// test(incrementNumbers({ a: 1, b: 2, 1: 3, d: "hello" }), {
+//     a: 2,
+//     b: 3,
+//     1: 4,
+//     d: "hello",
+// });
+// test(incrementNumbers({ a: 2, b: 3, 1: 4, d: "hello" }), {
+//     a: 3,
+//     b: 4,
+//     1: 5,
+//     d: "hello",
+// });

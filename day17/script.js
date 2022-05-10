@@ -131,7 +131,11 @@
  * @returns {Array<any>} 与えられた配列の各要素に、実行したい回数だけ関数を実行した結果が入った、新しい配列
  */
 function feedback(array, func, num) {
-    return array.map(fun)
+
+    for (let i = 0; i < num; i++) {
+        array = array.map(func);
+    }
+    return array;
 }
 
 function double(element) {
