@@ -6,22 +6,22 @@ let actual;
 let expected;
 
 //配列以外のテスト関数
-function testFunction( actual, expected ){
- 
-    if ( actual === expected ) {
-        console.log( "Test PASSED!" );
+function testFunction(actual, expected) {
+
+    if (actual === expected) {
+        console.log("Test PASSED!");
     } else {
-        console.error( "Test FAILED. Keep trying!" );
-        console.group( "Result:" );
-        console.log( "  actual:", actual );
-        console.log( "expected:", expected );
+        console.error("Test FAILED. Keep trying!");
+        console.group("Result:");
+        console.log("  actual:", actual);
+        console.log("expected:", expected);
         console.groupEnd();
-      }
+    }
 }
 
 //配列用のテスト関数
-function testarryFunction( actual, expected ){
-    
+function testarryFunction(actual, expected) {
+
     if (JSON.stringify(actual) === JSON.stringify(expected)) {
         console.log("Test PASSED!");
     } else {
@@ -119,7 +119,7 @@ function testarryFunction( actual, expected ){
 //     }
 
 //   } else if ( season === "Summer" ){
-  
+
 //     if ( temp === "hot" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "cool" || temp === "cold" ){
@@ -127,9 +127,9 @@ function testarryFunction( actual, expected ){
 //     } else{
 //       return "Please Input temp -> warm or hot or cool or cold.";
 //     }
- 
+
 //   } else if ( season === "Fall" ){
-  
+
 //     if ( temp === "cool" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "hot" || temp === "cold" ){
@@ -137,9 +137,9 @@ function testarryFunction( actual, expected ){
 //     } else{
 //       return "Please Input temp -> warm or hot or cool or cold.";
 //     }
-  
+
 //   } else if ( season === "Winter" ){
-    
+
 //     if ( temp === "cold" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "hot" || temp === "cool" ){
@@ -257,7 +257,7 @@ function testarryFunction( actual, expected ){
 //     return arrayOfPeople.length;
 
 //  }
-  
+
 // actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
 // expected = 4;
 // testFunction( actual, expected );
@@ -361,7 +361,7 @@ function testarryFunction( actual, expected ){
 //     let lastElement = array[array.length - 1];
 //     array.splice( array.length - 1, 1 );
 //     return lastElement;
-    
+
 // }
 
 // let array = [1, 2, 3, 4, 5, 100, "aaa"];
@@ -407,7 +407,7 @@ function testarryFunction( actual, expected ){
  * @returns {any} 与えられた配列の先頭の要素を返す。
  */
 // function shift( array ){
-   
+
 //     let firstElement = array[0];
 //     array.splice( 0, 1 );
 //     return firstElement;
@@ -432,28 +432,28 @@ function testarryFunction( actual, expected ){
  * @param {Array<string>} arrayOfPeople - 人の名前の配列
  * @returns {number} 与えられた配列の長さ
  */
-function numberOfPeople( arrayOfPeople ) {
-    
+function numberOfPeople(arrayOfPeople) {
+
     let i = 0;
 
     //無限ループで配列の先頭から要素の型チェック、"undefined"になったら抜ける
-    for(;;){
-        if( arrayOfPeople[i] === "undefined" ){
+    for (; ;) {
+        if (arrayOfPeople[i] === "undefined") {
             break;
         }
-        else{
+        else {
             i++;
         }
     }
     return i;
 
 }
-  
+
 actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
 expected = 4;
-testFunction( actual, expected );
+testFunction(actual, expected);
 
 actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin", "Mike"]);
 expected = 5;
-testFunction( actual, expected );
+testFunction(actual, expected);
 
