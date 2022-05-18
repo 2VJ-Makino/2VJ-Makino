@@ -2,21 +2,22 @@
 // 1行目に記載している 'use strict' は削除しないでください
 
 //テスト部分を関数化 削除しない
-let actual;
-let expected;
-function testFunction( actual, expected ){
- 
-    if ( actual === expected ) {
-        console.log( "Test PASSED!" );
-    } else {
-        console.error( "Test FAILED. Keep trying!" );
-        console.group( "Result:" );
-        console.log( "  actual:", actual );
-        console.log( "expected:", expected );
-        console.groupEnd();
-      }
-}
+// let actual;
+// let expected;
+// function testFunction(actual, expected) {
 
+//   if (actual === expected) {
+//     console.log("Test PASSED!");
+//   } else {
+//     console.error("Test FAILED. Keep trying!");
+//     console.group("Result:");
+//     console.log("  actual:", actual);
+//     console.log("expected:", expected);
+//     console.groupEnd();
+//   }
+// }
+
+//dig - tdd - next - warmup.ja.md
 // // //ウオームアップ
 // // /**
 // //  * @param {number} num1 - 1 番目の数字
@@ -83,6 +84,9 @@ function testFunction( actual, expected ){
 // // }
 // // console.log( retComf (10));
 
+//day7とあるが、これはday6の内容
+//dig - conditionals - cont.ja.md
+//基礎1と2
 // /**
 // //  * @param {number} ??? - 年齢
 // //  * @returns {boolean} 与えられた年齢がティーンエイジャー（13 歳から 19 歳までの間：「thirTEEN」から「nineTEEN」）かどうか
@@ -102,7 +106,7 @@ function testFunction( actual, expected ){
 
 //   let actual = isTeenager(3);
 //   let expected = false;
-  
+
 //   if (actual === expected) {
 //     console.log("Yay! Test PASSED.");
 //   } else {
@@ -110,10 +114,10 @@ function testFunction( actual, expected ){
 //     console.log("    actual: ", actual);
 //     console.log("  expected: ", expected);
 //   }
-  
+
 //   actual = isTeenager(14);
 //   expected = true;
-  
+
 //   if (actual === expected) {
 //     console.log("Yay! Test PASSED.");
 //   } else {
@@ -124,7 +128,7 @@ function testFunction( actual, expected ){
 
 //   actual = isTeenager(13);
 //   expected = true;
-  
+
 //   if (actual === expected) {
 //     console.log("Yay! Test PASSED.");
 //   } else {
@@ -134,7 +138,7 @@ function testFunction( actual, expected ){
 //   }
 //   actual = isTeenager(12);
 //   expected = false;
-  
+
 //   if (actual === expected) {
 //     console.log("Yay! Test PASSED.");
 //   } else {
@@ -142,10 +146,10 @@ function testFunction( actual, expected ){
 //     console.log("    actual: ", actual);
 //     console.log("  expected: ", expected);
 //   }
-  
+
 //   actual = isTeenager(19);
 //   expected = true;
-  
+
 //   if (actual === expected) {
 //     console.log("Yay! Test PASSED.");
 //   } else {
@@ -156,7 +160,7 @@ function testFunction( actual, expected ){
 
 //   actual = isTeenager(20);
 //   expected = false;
-  
+
 //   if (actual === expected) {
 //     console.log("Yay! Test PASSED.");
 //   } else {
@@ -208,6 +212,283 @@ function testFunction( actual, expected ){
 //   console.log("    actual: ", actual);
 //   console.log("  expected: ", expected);
 // }
+
+//基礎3
+// 関数 anotherGreeting を宣言してください。
+
+/**
+ * @param {string} ??? - 人の名前
+ * @param {boolean} ??? - 丁寧な挨拶にするかどうかを表すブーリアン
+ * @param {boolean} ??? - "Hello" なら true を、"Goodbye" なら false
+ * @returns {string} 与えられた引数に応じた適切な挨拶の文章
+ */
+// function anotherGreeting(name, selected1, selected2) {
+
+//   let result = "";
+
+//   if (typeof name !== "string") {
+//     return "無効なインプットです！";
+//   }
+
+//   if (selected2 === true) {
+//     result = "Hello, " + name;
+//   } else {
+//     result = "Goodbye, " + name
+//   }
+
+//   if (selected1 === true) {
+//     result += "-san.";
+//   } else {
+//     result += "!";
+//   }
+
+//   return result;
+
+// }
+
+// actual = anotherGreeting("Mary", true, true);
+// expected = "Hello, Mary-san.";
+// testFunction(actual, expected);
+
+// actual = anotherGreeting("Mary", false, true);
+// expected = "Hello, Mary!";
+// testFunction(actual, expected);
+
+// actual = anotherGreeting("Felix", false, false);
+// expected = "Goodbye, Felix!";
+// testFunction(actual, expected);
+
+// actual = anotherGreeting(true, false, true);
+// expected = "無効なインプットです！";
+// testFunction(actual, expected);
+
+
+// 中級2
+// 関数 getLetterGrade を宣言してください。次の説明を参考にしましょう。
+// 関数 getLetterGrade に レンジチェック を加えて、100 より大きい数値、または 0 より小さい数値を与えた場合、
+//“無効な点数です。” と返すように修正してください。
+
+// 90 以上、100 以下は、 "A"
+// 80 以上、89 以下は、"B"
+// 70 以上、79 以下は、"C"
+// 60 以上、69 以下は、"D"
+// 59 以下の場合は、"F"
+/**
+ * @param {number} ??? - 0 以上 100 以下の点数
+ * @returns {"A"|"B"|"C"|"D"|"F"} 点数に応じた成績
+ */
+// function getLetterGrade(nubmer) {
+
+//   if (nubmer < 0 || nubmer > 100) {
+//     return "無効な点数です";
+//   } else {
+//     if (nubmer >= 90 && nubmer <= 100) {
+//       return "A";
+//     } else if (nubmer >= 80 && nubmer <= 89) {
+//       return "B";
+//     } else if (nubmer >= 70 && nubmer <= 79) {
+//       return "C";
+//     } else if (nubmer >= 60 && nubmer <= 69) {
+//       return "D";
+//     } else {
+//       return "F";
+//     }
+//   }
+// }
+
+// actual = getLetterGrade(200);
+// expected = "無効な点数です"
+// testFunction(actual, expected);
+
+
+//No4
+//関数 getBestNumericalGrade を宣言してください。この関数は getLetterGrade と逆のことを行います。
+/**
+ * @param {"A"|"B"|"C"|"D"|"F"} ??? - 成績
+ * @returns {number} 各成績における最高点
+ */
+// function getBestNumericalGrade(grade) {
+
+//   if (grade === "A" || grade === "B" || grade === "C" || grade === "D" || grade === "F") {
+
+//     if (grade === "A") {
+//       return 100;
+//     } else if (grade === "B") {
+//       return 89;
+//     } else if (grade === "C") {
+//       return 79;
+//     } else if (grade === "D") {
+//       return 69;
+//     } else if (grade === "F") {
+//       return 59;
+//     }
+//   } else {
+//     return "無効な点数です。";
+//   }
+
+// }
+
+// actual = getBestNumericalGrade("A");
+// expected = 100;
+// testFunction(actual, expected);
+
+
+// actual = getBestNumericalGrade("B");
+// expected = 89;
+// testFunction(actual, expected);
+
+// actual = getBestNumericalGrade("恐竜ってすばらしい");
+// expected = "無効な点数です。";
+// testFunction(actual, expected);
+
+// actual = getBestNumericalGrade(100);
+// expected = "無効な点数です。";
+// testFunction(actual, expected);
+
+// 応用演習
+// ここからの演習では、講義で説明されたことのないテクニックを使用する必要があるかもしれません。
+// 次の問題では、De Morgan’s Law（ド・モルガンの法則） と呼ばれるものについて調べてみることをおすすめします。
+// 1.|| 演算子を使用せずに、|| のように機能する関数 or を宣言してください。
+
+/**
+ * @param {any} ??? - １つめの被演算子
+ * @param {any} ??? - ２つめの被演算子
+ * @returns {any} ２つの被演算子を与えられた順番のまま || で評価したときと同じ結果
+ */
+function or(op1, op2) {
+
+  //共にBooleanの場合
+  if (typeof op1 === "boolean" && typeof op2 === "boolean") {
+    if (op1 === false && op2 === false) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  //op2がbooleanでない場合はbooleanでない方を返す
+  else if (typeof op1 === "boolean" && typeof op2 !== "boolean") {
+    return op2;
+  }
+  //op1がbooleanでない場合はbooleanでない方を返す
+  else if (typeof op1 !== "boolean" && typeof op2 === "boolean") {
+    return op1;
+  }
+  //op1、op2が共にbooleanでない場合
+  else {
+    if (op1 !== "") {
+      return op1;
+    }
+    else {
+      return op2;
+    }
+  }
+}
+// test(or(true, true), true);
+// test(or(true, false), true);
+// test(or(false, true), true);
+// test(or(false, false), false);
+// test(or("bananas", false), "bananas");
+// test(or(false, "bananas"), "bananas");
+// test(or("bananas", true), "bananas");
+// test(or(true, "bananas"), "bananas");
+// test(or("", "bananas"), "bananas");
+// test(or("bananas", ""), "bananas");
+// test(or("apples", "bananas"), "apples");
+// test(or(1, "bananas"), 1);
+// test(or("bananas", 1), "bananas");
+
+
+// function or2(op1, op2) {
+//   //共にBooleanの場合
+//   if (Boolean(op1) === false && Boolean(op2) === false) {
+//     return false;
+//   }
+//   else {
+//     return true;
+//   }
+// }
+
+
+// test(or2(true, true), true);
+// test(or2(true, false), true);
+// test(or2(false, true), true);
+// test(or2(false, false), false);
+// test(or2("bananas", false), "bananas");
+// test(or2(false, "bananas"), "bananas");
+// test(or2("bananas", true), "bananas");
+// test(or2(true, "bananas"), "bananas");
+// test(or2("", "bananas"), "bananas");
+// test(or2("bananas", ""), "bananas");
+// test(or2("apples", "bananas"), "apples");
+// test(or2(1, "bananas"), 1);
+// test(or2("bananas", 1), "bananas");
+
+/**
+ * @param {any} ??? - １つめの被演算子
+ * @param {any} ??? - ２つめの被演算子
+ * @returns {any} ２つの被演算子を与えられた順番のまま && で評価したときと同じ結果
+ */
+function and(op1, op2) {
+
+  //共にBooleanの場合
+  if (typeof op1 === "boolean" && typeof op2 === "boolean") {
+    if (op1 === true && op2 === true) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  //op2がbooleanでない場合はbooleanを返す
+  else if (typeof op1 === "boolean" && typeof op2 !== "boolean") {
+    return op1;
+  }
+  //op1がbooleanでない場合はbooleanを返す
+  else if (typeof op1 !== "boolean" && typeof op2 === "boolean") {
+    return op2;
+  }
+  //op1、op2が共にbooleanでない場合
+  else {
+    if (op1 === "") {
+      return op1;
+    }
+    else if (typeof op1 === "number") {
+      return op2;
+    }
+    else {
+      return op2;
+    }
+  }
+}
+
+test(and(true, true), true);
+test(and(true, false), false);
+test(and(false, true), false);
+test(and(false, false), false);
+test(and("bananas", false), false);
+test(and(false, "bananas"), false);
+test(and("bananas", true), true);
+test(and(true, "bananas"), true);
+test(and("", "bananas"), "");
+test(and("bananas", ""), "");
+test(and("apples", "bananas"), "bananas");
+test(and(1, "bananas"), "bananas");
+test(and("bananas", 1), 1);
+test(and(10, "bananas"), "bananas");
+test(and("bananas", 10), 10);
+
+
+
+
+
+
+
+
+
+
+
+
 
 //基礎2
 /**
@@ -261,7 +542,7 @@ function testFunction( actual, expected ){
 //     const arr = ["0", "1", "2", "triangle", "square", "pentagon", "hexagon", "heptagon", "octagon"]
 
 //     if(( number < 3 && number > 8 ) || ( typeof number !== "number" )){
-        
+
 //         return "3から8の数値か、数値を入力してください";
 //     }
 //     return arr[number];
@@ -349,7 +630,7 @@ function testFunction( actual, expected ){
 //     } else if ( tempMinutes >= 240 && tempMinutes < 720 ){
 
 //         return "morning";   //4:00AM~12:00PM(分に変換)　
- 
+
 //     } else if ( tempMinutes >= 720 && tempMinutes < 1020 ){
 
 //         return "afternoon"; //12:00PM~5:00PM(分に変換)　
@@ -411,22 +692,22 @@ function testFunction( actual, expected ){
  */
 // ここにコードを書きましょう
 
-actual = getNumberName(0);
-expected = "zero";
-if (actual === expected) {
-  console.log("Yay! Test PASSED.");
-} else {
-  console.error("Test FAILED. Keep trying!");
-  console.log("    actual: ", actual);
-  console.log("  expected: ", expected);
-}
+// actual = getNumberName(0);
+// expected = "zero";
+// if (actual === expected) {
+//   console.log("Yay! Test PASSED.");
+// } else {
+//   console.error("Test FAILED. Keep trying!");
+//   console.log("    actual: ", actual);
+//   console.log("  expected: ", expected);
+// }
 
-actual = getNumberName(1345);
-expected = "one thousand three hundred forty five";
-if (actual === expected) {
-  console.log("Yay! Test PASSED.");
-} else {
-  console.error("Test FAILED. Keep trying!");
-  console.log("    actual: ", actual);
-  console.log("  expected: ", expected);
-}
+// actual = getNumberName(1345);
+// expected = "one thousand three hundred forty five";
+// if (actual === expected) {
+//   console.log("Yay! Test PASSED.");
+// } else {
+//   console.error("Test FAILED. Keep trying!");
+//   console.log("    actual: ", actual);
+//   console.log("  expected: ", expected);
+// }

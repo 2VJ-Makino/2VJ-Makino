@@ -238,13 +238,6 @@ function testarryFunction(actual, expected) {
 // ナマケモノタイム!!!🦥
 // 以下は、ナマケモノ(sloth) についての情報が含まれている bucketOfSloths という配列です。
 
-const bucketOfSloths = [
-    { name: { first: "Furry", middle: "Danger", last: "Assassin" }, age: 2 },
-    { name: { first: "Slow", last: "Pumpkin" }, age: 3 },
-    { name: { first: "Bullet", middle: "Proof", last: "Sloth" }, age: 4 },
-    { name: { first: "Boos", middle: "Boos", last: "Bun" }, age: 5 },
-    { name: { first: "Jungle", last: "Fuzz" }, age: 2 },
-];
 
 
 
@@ -254,41 +247,97 @@ const bucketOfSloths = [
  * @param {Array<object>} slothArray - ナマケモノに入った配列
  * @returns {object} 名前・ミドルネーム・苗字を合わせた名前が一番長いナマケモノのオブジェクト
  */
-function longestName(slothArray) {
+// function longestName(slothArray) {
 
-    let retObject = {};
-    let nameString = "";
-    let nameSum = 0;
-    let nameSumTemp = 0;
+//     let retObject = {};
+//     let nameString = "";
+//     let nameSum = 0;
+//     let nameSumTemp = 0;
 
 
-    for (let i = 0; i < slothArray.length; i++) {
-        //FistとLastは必ずある
-        nameSumTemp = 0;
+//     for (let i = 0; i < slothArray.length; i++) {
+//         //FistとLastは必ずある
+//         nameSumTemp = 0;
 
-        nameSumTemp = slothArray[i].name.first.length + slothArray[i].name.last.length;
+//         nameSumTemp = slothArray[i].name.first.length + slothArray[i].name.last.length;
 
-        //Middleはある場合
-        if (slothArray[i].name.middle !== undefined) {
+//         //Middleはある場合
+//         if (slothArray[i].name.middle !== undefined) {
 
-            nameSumTemp = nameSumTemp + slothArray[i].name.middle.length;
+//             nameSumTemp = nameSumTemp + slothArray[i].name.middle.length;
 
+//         }
+
+//         if (nameSumTemp > nameSum) {
+//             nameSum = nameSumTemp;
+//             nameString = slothArray[i].name;   //nameを覚えておく
+//         }
+
+//     }
+
+//     console.log(nameString);
+
+//     return retObject;
+
+
+
+// }
+// testarryFunction(longestName(bucketOfSloths), bucketOfSloths[0]);
+// //test(longestName(bucketOfSloths.slice(1)), bucketOfSloths[2]);
+// //test(longestName(), undefined);
+
+//ソート(バブル固定)
+function sort(array) {
+
+    let temp = 0;
+
+    for (let i = 0; i <= array.length; i++) {
+        for (let j = array.length - 1; j >= 1; j--) {
+            if (array[j] < array[j - 1]) {
+                temp = array[j - 1];
+                array[j - 1] = array[j];
+                array[j] = temp;
+            }
         }
-
-        if (nameSumTemp > nameSum) {
-            nameSum = nameSumTemp;
-            nameString = slothArray[i].name;   //nameを覚えておく
-        }
-
     }
+    return array;
+}
+const bucketOfSloths = [
+    { name: { first: "Furry", middle: "Danger", last: "Assassin" }, age: 2 },
+    { name: { first: "Slow", last: "Pumpkin" }, age: 3 },
+    { name: { first: "Bullet", middle: "Proof", last: "Sloth" }, age: 4 },
+    { name: { first: "Boos", middle: "Boos", last: "Bun" }, age: 5 },
+    { name: { first: "Jungle", last: "Fuzz" }, age: 2 },
+];
 
-    console.log(nameString);
+const bucketOfSlothsSortedByAge = [
+    { name: { first: "Furry", middle: "Danger", last: "Assassin" }, age: 2 },
+    { name: { first: "Jungle", last: "Fuzz" }, age: 2 },
+    { name: { first: "Slow", last: "Pumpkin" }, age: 3 },
+    { name: { first: "Bullet", middle: "Proof", last: "Sloth" }, age: 4 },
+    { name: { first: "Boos", middle: "Boos", last: "Bun" }, age: 5 },
+];
 
-    return retObject;
+
+
+
+//2.関数 getSortedByAge を宣言してください。
+function getSortedByAge(array) {
+
+    let temp = 0;
+
+    for (let i = 0; i <= array.length; i++) {
+        for (let j = array.length - 1; j >= 1; j--) {
+            if (array[j] < array[j - 1]) {
+                temp = array[j - 1];
+                array[j - 1] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    return array;
+
 
 
 
 }
-testarryFunction(longestName(bucketOfSloths), bucketOfSloths[0]);
-//test(longestName(bucketOfSloths.slice(1)), bucketOfSloths[2]);
-//test(longestName(), undefined);

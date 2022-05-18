@@ -6,22 +6,22 @@ let actual;
 let expected;
 
 //配列以外のテスト関数
-function testFunction( actual, expected ){
- 
-    if ( actual === expected ) {
-        console.log( "Test PASSED!" );
+function testFunction(actual, expected) {
+
+    if (actual === expected) {
+        console.log("Test PASSED!");
     } else {
-        console.error( "Test FAILED. Keep trying!" );
-        console.group( "Result:" );
-        console.log( "  actual:", actual );
-        console.log( "expected:", expected );
+        console.error("Test FAILED. Keep trying!");
+        console.group("Result:");
+        console.log("  actual:", actual);
+        console.log("expected:", expected);
         console.groupEnd();
-      }
+    }
 }
 
 //配列用のテスト関数
-function testarryFunction( actual, expected ){
-    
+function testarryFunction(actual, expected) {
+
     if (JSON.stringify(actual) === JSON.stringify(expected)) {
         console.log("Test PASSED!");
     } else {
@@ -119,7 +119,7 @@ function testarryFunction( actual, expected ){
 //     }
 
 //   } else if ( season === "Summer" ){
-  
+
 //     if ( temp === "hot" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "cool" || temp === "cold" ){
@@ -127,9 +127,9 @@ function testarryFunction( actual, expected ){
 //     } else{
 //       return "Please Input temp -> warm or hot or cool or cold.";
 //     }
- 
+
 //   } else if ( season === "Fall" ){
-  
+
 //     if ( temp === "cool" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "hot" || temp === "cold" ){
@@ -137,9 +137,9 @@ function testarryFunction( actual, expected ){
 //     } else{
 //       return "Please Input temp -> warm or hot or cool or cold.";
 //     }
-  
+
 //   } else if ( season === "Winter" ){
-    
+
 //     if ( temp === "cold" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "hot" || temp === "cool" ){
@@ -257,7 +257,7 @@ function testarryFunction( actual, expected ){
 //     return arrayOfPeople.length;
 
 //  }
-  
+
 // actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
 // expected = 4;
 // testFunction( actual, expected );
@@ -361,7 +361,7 @@ function testarryFunction( actual, expected ){
 //     let lastElement = array[array.length - 1];
 //     array.splice( array.length - 1, 1 );
 //     return lastElement;
-    
+
 // }
 
 // let array = [1, 2, 3, 4, 5, 100, "aaa"];
@@ -407,7 +407,7 @@ function testarryFunction( actual, expected ){
  * @returns {any} 与えられた配列の先頭の要素を返す。
  */
 // function shift( array ){
-   
+
 //     let firstElement = array[0];
 //     array.splice( 0, 1 );
 //     return firstElement;
@@ -433,7 +433,7 @@ function testarryFunction( actual, expected ){
  * @returns {number} 与えられた配列の長さ
  */
 // function numberOfPeople( arrayOfPeople ) {
-    
+
 //     let i = 0;
 
 //     //無限ループで配列の先頭から要素の型チェック、"undefined"になったら抜ける
@@ -447,7 +447,7 @@ function testarryFunction( actual, expected ){
 //     return i;
 
 // }
-  
+
 // actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
 // expected = 4;
 // testFunction( actual, expected );
@@ -473,27 +473,27 @@ function testarryFunction( actual, expected ){
 //         return "二つの配列の長さが異なります";
 //     }
 
-    //普通のやり方、要素を一つずつ比較するやり方
-    // for( let i = 0; i < array1.length; i++ ){
+//普通のやり方、要素を一つずつ比較するやり方
+// for( let i = 0; i < array1.length; i++ ){
 
-    //     if ( array1[i] !== array2[array1.length - 1 - i] ){
-    //         return false;
-    //     }
-    // }
-    // return true;
+//     if ( array1[i] !== array2[array1.length - 1 - i] ){
+//         return false;
+//     }
+// }
+// return true;
 
-    //array2を反転、要素を一つずつ比較するやり方    
-    // let array3 = array2.reverse();
+//array2を反転、要素を一つずつ比較するやり方    
+// let array3 = array2.reverse();
 
-    // for( let i = 0; i < array1.length; i++ ){
+// for( let i = 0; i < array1.length; i++ ){
 
-    //     if ( array1[i] !== array3[i] ){
-    //         return false;
-    //     }
-    // }
-    // return true;
+//     if ( array1[i] !== array3[i] ){
+//         return false;
+//     }
+// }
+// return true;
 
-    //array2を反転、配列を比較するやり方    
+//array2を反転、配列を比較するやり方    
 //     let array3 = array2.reverse();
 //     if (JSON.stringify( array1 ) !== JSON.stringify( array3 )) {
 //         return false;
@@ -534,17 +534,17 @@ function testarryFunction( actual, expected ){
  * @param {Array<any>} array2 - 2 番目の配列
  * @returns {Array<any>} 与えられた 2 つの配列を連結した新しい 1 つの配列を返す
  */
-function concat( array1, array2 ){
+function concat(array1, array2) {
 
-     if ( typeof array1 !== "object" || typeof array2 !== "object" ){
-         return "配列を引数にしてください";
-     }
+    if (typeof array1 !== "object" || typeof array2 !== "object") {
+        return "配列を引数にしてください";
+    }
 
     let array3 = array1.slice();    //値渡しであることに注意!(参照渡しだとarray1の値が変わる)
     //let array3 = array1;
     let j = 0;
 
-    for( let i = array1.length; i < ( array1.length + array2.length) ; i++ ){
+    for (let i = array1.length; i < (array1.length + array2.length); i++) {
         array3[i] = array2[j];
         j++;
     }
@@ -555,18 +555,18 @@ function concat( array1, array2 ){
 let array1 = [1, 2, 3, 4];
 let array2 = [4, 3, 2, 1];
 
-actual = concat( array1, array2 );
+actual = concat(array1, array2);
 expected = [1, 2, 3, 4, 4, 3, 2, 1];
-testarryFunction( actual, expected );
+testarryFunction(actual, expected);
 
 // // 元の配列が変更されていないことを確認する
 actual = array1;
 expected = [1, 2, 3, 4];
-testarryFunction( actual, expected );
+testarryFunction(actual, expected);
 
 actual = array2;
 expected = [4, 3, 2, 1];
-testarryFunction( actual, expected );
+testarryFunction(actual, expected);
 
 // array1 = 1;
 // array2 = [4, 3, 2, 1];

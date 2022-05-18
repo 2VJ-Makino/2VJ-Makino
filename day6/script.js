@@ -6,22 +6,22 @@ let actual;
 let expected;
 
 //配列以外のテスト関数
-function testFunction( actual, expected ){
- 
-    if ( actual === expected ) {
-        console.log( "Test PASSED!" );
+function testFunction(actual, expected) {
+
+    if (actual === expected) {
+        console.log("Test PASSED!");
     } else {
-        console.error( "Test FAILED. Keep trying!" );
-        console.group( "Result:" );
-        console.log( "  actual:", actual );
-        console.log( "expected:", expected );
+        console.error("Test FAILED. Keep trying!");
+        console.group("Result:");
+        console.log("  actual:", actual);
+        console.log("expected:", expected);
         console.groupEnd();
-      }
+    }
 }
 
 //配列用のテスト関数
-function testarryFunction( actual, expected ){
-    
+function testarryFunction(actual, expected) {
+
     if (JSON.stringify(actual) === JSON.stringify(expected)) {
         console.log("Test PASSED!");
     } else {
@@ -119,7 +119,7 @@ function testarryFunction( actual, expected ){
 //     }
 
 //   } else if ( season === "Summer" ){
-  
+
 //     if ( temp === "hot" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "cool" || temp === "cold" ){
@@ -127,9 +127,9 @@ function testarryFunction( actual, expected ){
 //     } else{
 //       return "Please Input temp -> warm or hot or cool or cold.";
 //     }
- 
+
 //   } else if ( season === "Fall" ){
-  
+
 //     if ( temp === "cool" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "hot" || temp === "cold" ){
@@ -137,9 +137,9 @@ function testarryFunction( actual, expected ){
 //     } else{
 //       return "Please Input temp -> warm or hot or cool or cold.";
 //     }
-  
+
 //   } else if ( season === "Winter" ){
-    
+
 //     if ( temp === "cold" ){
 //       return "The temperature is normal for the season."
 //     } else if( temp === "warm" || temp === "hot" || temp === "cool" ){
@@ -246,6 +246,7 @@ function testarryFunction( actual, expected ){
 // expected = "Please Input season or temp in String.";
 // testFunction( actual, expected );
 
+//lesseon 7 dig-arrays-intro.ja.md
 //基礎1
 //関数 numberOfPeople を宣言してください。
 /**
@@ -257,7 +258,7 @@ function testarryFunction( actual, expected ){
 //     return arrayOfPeople.length;
 
 //  }
-  
+
 // actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
 // expected = 4;
 // testFunction( actual, expected );
@@ -272,7 +273,7 @@ function testarryFunction( actual, expected ){
 // expected = 8;
 // testFunction( actual, expected );
 
-//基礎2
+//基礎4
 /**
  * @param {Array<any>} array - 配列
  * @returns {any} 与えられた配列の最後の要素を返す
@@ -286,7 +287,7 @@ function testarryFunction( actual, expected ){
 // expected = "Mike";
 // testFunction( actual, expected );
 
-//基礎3
+//基礎5
 //ビルトインの .push メソッドの代わりになる関数 push を作ってみましょう！ビルトインの .push メソッドを使ってはいけません。
 
 /**
@@ -361,7 +362,7 @@ function testarryFunction( actual, expected ){
 //     let lastElement = array[array.length - 1];
 //     array.splice( array.length - 1, 1 );
 //     return lastElement;
-    
+
 // }
 
 // let array = [1, 2, 3, 4, 5, 100, "aaa"];
@@ -407,7 +408,7 @@ function testarryFunction( actual, expected ){
  * @returns {any} 与えられた配列の先頭の要素を返す。
  */
 // function shift( array ){
-   
+
 //     let firstElement = array[0];
 //     array.splice( 0, 1 );
 //     return firstElement;
@@ -432,28 +433,117 @@ function testarryFunction( actual, expected ){
  * @param {Array<string>} arrayOfPeople - 人の名前の配列
  * @returns {number} 与えられた配列の長さ
  */
-function numberOfPeople( arrayOfPeople ) {
-    
-    let i = 0;
+// function numberOfPeople(arrayOfPeople) {
 
-    //無限ループで配列の先頭から要素の型チェック、"undefined"になったら抜ける
-    for(;;){
-        if( arrayOfPeople[i] === "undefined" ){
-            break;
-        }
-        else{
-            i++;
+//     let i = 0;
+
+//     //無限ループで配列の先頭から要素の型チェック、"undefined"になったら抜ける
+//     for (const element of arrayOfPeople) {
+//         i++;
+//     }
+//     return i;
+
+// }
+// // actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
+// // expected = 4;
+// // testFunction(actual, expected);
+
+// actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin", "Mike"]);
+// expected = 5;
+// testFunction(actual, expected);
+
+//2 つの配列が互いに逆順かどうかをチェックする関数 areReverses を宣言してください。
+//これを機に、配列は、どのようなビルトイン・メソッドが利用できるのか調べてみましょう。
+//この問題を解くのにぴったりなメソッドが見つかる かも しれませんよ😉
+
+/**
+ * @param {Array<any>} ??? - 1 番目の配列
+ * @param {Array<any>} ??? - 2 番目の配列
+ * @returns {boolean} 2 つの配列が互いに逆順かどうか
+ */
+// function areReverses(array1, array2) {
+
+
+//     for (let i = 0; i < array1.length - 1; i++) {
+//         for (let j = array2.length - 1; j = 0; j--) {
+//             if (array1[i] !== array2[j]) {
+//                 return false;
+//             }
+//         }
+//     }
+//     return true;
+// }
+// let array1 = [1, 2, 3, 4];
+// let array2 = [4, 3, 2, 1];
+
+// test(areReverses(array1, array2), true);
+
+// function areReverses2(array1, array2) {
+//     return JSON.stringify(array1.reverse()) === JSON.stringify(array2);
+// }
+// test(areReverses2(array1, array2), true);
+
+
+//3関数 concat を宣言してください。ビルトインの .concat を使ってはいけません。
+/**
+ * @param {Array<any>} array1 - 1 番目の配列
+ * @param {Array<any>} array2 - 2 番目の配列
+ * @returns {Array<any>} 与えられた 2 つの配列を連結した新しい 1 つの配列を返す
+ */
+// function concat(array1, array2) {
+
+//     if (typeof array1 !== "object" || typeof array2 !== "object") {
+//         return "配列を引数にしてください";
+//     }
+
+//     let array3 = array1.slice();    //値渡しであることに注意!(参照渡しだとarray1の値が変わる)
+//     let j = 0;
+
+//     for (let i = array1.length; i < (array1.length + array2.length); i++) {
+//         array3[i] = array2[j];
+//         j++;
+//     }
+//     return array3;
+// }
+// let array1 = [1, 2, 3, 4];
+// let array2 = [4, 3, 2, 1];
+
+// test(concat(array1, array2), [1, 2, 3, 4, 4, 3, 2, 1]);
+
+
+//ナイトメア問題 😈
+//この問題は難解なので、心して臨みましょう。
+//関数 sort を宣言してください。ビルトインの sort メソッドを使ってはいけません。
+//注目： 配列を並び替える方法は たくさん あります。好きな方法を選んでみましょう！
+
+/**
+ * @param {Array<number>} ??? - 数字の配列
+ * @returns {Array<number>} 与えられた配列の要素を昇順に並べた新しい配列
+ */
+function sort(array, typeOfSort) {
+
+    let temp = 0;
+
+    //バブルソート
+    if (typeOfSort === "bubble") {
+        for (let i = 0; i <= array.length; i++) {
+            for (let j = array.length - 1; j >= 1; j--) {
+                if (array[j] < array[j - 1]) {
+                    temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+            }
         }
     }
-    return i;
+    //クイックソート
+    else if (typeOfSort === "quick") {
 
+    }
+    return array;
 }
-  
-actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
-expected = 4;
-testFunction( actual, expected );
 
-actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin", "Mike"]);
-expected = 5;
-testFunction( actual, expected );
 
+let arrayToSort = [10, 9, 8, 7, 6, 5, 4, 2, 2, 1];
+
+test(sort(arrayToSort, "bubble"), [1, 2, 2, 4, 5, 6, 7, 8, 9, 10]);

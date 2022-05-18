@@ -4,17 +4,17 @@
 //テスト部分を関数化 削除しない
 let actual;
 let expected;
-function testFunction( actual, expected ){
- 
-    if ( actual === expected ) {
-        console.log( "Test PASSED!" );
+function testFunction(actual, expected) {
+
+    if (actual === expected) {
+        console.log("Test PASSED!");
     } else {
-        console.error( "Test FAILED. Keep trying!" );
-        console.group( "Result:" );
-        console.log( "  actual:", actual );
-        console.log( "expected:", expected );
+        console.error("Test FAILED. Keep trying!");
+        console.group("Result:");
+        console.log("  actual:", actual);
+        console.log("expected:", expected);
         console.groupEnd();
-      }
+    }
 }
 
 
@@ -75,6 +75,8 @@ function testFunction( actual, expected ){
 //     console.trace();
 //}
 
+
+//dig-tdd.ja.md
 //基礎演習
 //
 
@@ -90,10 +92,10 @@ function testFunction( actual, expected ){
 // function getFullName(firstName, lastName) {
 //     return firstName +" "+ lastName;
 //   }
-  
+
 //   actual = getFullName("Ken", "Watanabe");
 //   expected = "Ken Watanabe";
-  
+
 //   if (actual === expected) {
 //     console.log("Test PASSED!");
 //   } else {
@@ -122,10 +124,10 @@ function testFunction( actual, expected ){
 //         return "Hello, " + name + ".";
 //     }
 //   }
-  
+
 //   actual = simpleGreeting("Amy", true);
 //   expected = "Hello, Amy-san.";
-  
+
 //   if (actual === expected) {
 //     console.log("Test PASSED!");
 //   } else {
@@ -135,10 +137,10 @@ function testFunction( actual, expected ){
 //     console.log("expected:", expected);
 //     console.groupEnd();
 //   }
-  
+
 //   actual = simpleGreeting("Matt", false);
 //   expected = "Hello, Matt.";
-  
+
 //   if (actual === expected) {
 //     console.log("Test PASSED!");
 //   } else {
@@ -307,7 +309,7 @@ function testFunction( actual, expected ){
 //  * @returns {boolean} 与えられた色が虹色に含まれているかどうか
 //  */
 // function isRainbowColor( color ){
-    
+
 //     if( color === "red"
 //         || color === "orange"
 //         || color === "yellow"
@@ -410,9 +412,9 @@ function testFunction( actual, expected ){
 //  * @returns {boolean} 与えられた演算子を被演算子と組み合わせて比較した結果
 //  */
 // function compare( calc, num1, num2 ){
-   
+
 //     if( calc === "==" ){
-        
+
 //         return ( num1 == num2 );
 
 //     } else if ( calc === "===" ){
@@ -439,7 +441,7 @@ function testFunction( actual, expected ){
 
 //         console.log("比較演算子を選択してください");
 //         return "比較演算子を選択してください";
-        
+
 //     }
 // }
 
@@ -572,3 +574,209 @@ function testFunction( actual, expected ){
 // expected = "z Z a A 12345";
 // testFunction( actual, expected );
 
+// ナイトメア問題 😈
+// 関数 isPrime を宣言してください。
+// まだリファクタリングできそう
+/**
+ * @param {number} ??? - チェックしたい数字
+ * @returns {boolean} 与えられた数字が素数かどうか
+ */
+// function isPrime(number) {
+
+//     let result = false;
+//     let div = 0;
+//     let mod = 0;
+//     //2から入力された数までループ
+//     for (let i = 2; i <= number; i++) {
+//         //その数が自分自身のみで割り切れるかのチェック
+//         for (let j = 2; j <= i; j++) {
+//             div = i / j;
+//             mod = i % j;
+//             //割り切れて、かつ、自分自身と同じ数=素数
+//             if (mod === 0 && i === j) {
+//                 result = true;
+//                 break;
+//             }
+//             //割り切れるが自分自身と同じ数でない=素数でない
+//             else if (mod === 0 && i !== j) {
+//                 result = false;
+//                 break;
+//             }
+//         }
+//     }
+//     return result;
+// }
+// actual = isPrime(1);
+// expected = false;
+// testFunction(actual, expected);
+
+// actual = isPrime(11);
+// expected = true;
+// testFunction(actual, expected);
+
+// actual = isPrime(4);
+// expected = false;
+// testFunction(actual, expected);
+
+// actual = isPrime(5);
+// expected = true;
+// testFunction(actual, expected);
+
+// actual = isPrime(104729);
+// expected = true;
+// testFunction(actual, expected);
+
+
+//dig-code-style.ja.md
+// function AVERAGE(x, y) {
+//     const TWO = 2;
+//     return (x + y) / TWO;
+// }
+// expected = 1; // 期待するテスト結果
+// actual = AVERAGE(1, 1); // テストする式
+// testFunction(actual, expected);
+
+// expected = 2.5;
+// actual = AVERAGE(2, 3);
+// testFunction(actual, expected);
+
+// expected = 3;
+// actual = AVERAGE(2, 4);
+// testFunction(actual, expected);
+
+
+//2 ispositive
+
+// function ispositive(thing) {
+//     if (thing < 0) {
+//         return false;
+//     } else if (thing > 0) {
+//         return true;
+//     } else if (thing === 0) {
+//         return false;
+//     }
+// }
+
+// expected = true; // 期待するテスト結果
+// actual = ispositive(1); // テストする式
+// testFunction(actual, expected);
+
+// expected = false; // 期待するテスト結果
+// actual = ispositive(0); // テストする式
+// testFunction(actual, expected);
+
+// expected = false; // 期待するテスト結果
+// actual = ispositive(-100); // テストする式
+// testFunction(actual, expected);
+
+//3 AreaOfTriangle
+
+// function AreaOfTriangle(base, height) {
+//     const areaOfRectangle = base * height;
+//     return areaOfRectangle / 2;
+// }
+
+// expected = 7.5; // 期待するテスト結果
+// actual = AreaOfTriangle(3, 5); // テストする式
+// testFunction(actual, expected);
+
+// expected = 25; // 期待するテスト結果
+// actual = AreaOfTriangle(10, 5); // テストする式
+// testFunction(actual, expected);
+
+//4is_the_given_number_a_multiple_of_seven_or_not
+// function is_the_given_number_a_multiple_of_seven_or_not(numberthatwewanttotest) {
+//     const isthegivennumberamultipleofsevenornot = numberthatwewanttotest % 7 === 0;
+
+//     if (isthegivennumberamultipleofsevenornot === true) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// expected = true;
+// actual = is_the_given_number_a_multiple_of_seven_or_not(14); // テストする式
+// testFunction(actual, expected);
+
+// expected = false;
+// actual = is_the_given_number_a_multiple_of_seven_or_not(36); // テストする式
+// testFunction(actual, expected);
+
+//中級
+//iswithinrange
+
+// function iswithinrange(input, lower, upper) {
+//     if (input >= lower) {
+//         if (input <= upper) {
+//             return true;
+//         } else if (input > upper) {
+//             return false;
+//         }
+//     } else if (input < lower) {
+//         return false;
+//     }
+// }
+
+// expected = true;
+// actual = iswithinrange(11, 10, 12); // テストする式
+// testFunction(actual, expected);
+
+//REMAINDER
+
+// function REMAINDER(op1, op2) {
+//     const thing = op2 * Math.floor(op1 / op2);
+//     return op1 - thing;
+// }
+
+// expected = 10;
+// actual = REMAINDER(10, 100); // テストする式
+// testFunction(actual, expected);
+
+// expected = 0;
+// actual = REMAINDER(100, 10); // テストする式
+// testFunction(actual, expected);
+
+//arethesenumbersinanincreasingsequence
+
+// function arethesenumbersinanincreasingsequence(first, second, third, last) {
+
+//     const IS_FIRST_LESS_THAN_SECOND = first < second;
+//     const issecondlessthanthird = second < third;
+//     const _isThirdLessThanLast = third < last;
+
+//     if (IS_FIRST_LESS_THAN_SECOND) {
+//         if (issecondlessthanthird) {
+//             if (_isThirdLessThanLast) {
+//                 return true;
+//             } else {
+//                 return false
+//             };
+//         } else {
+//             return false
+//         };
+//     } else {
+//         return false
+//     };
+// }
+
+// expected = true;
+// actual = arethesenumbersinanincreasingsequence(1, 2, 5, 8); // テストする式
+// testFunction(actual, expected);
+
+//応用
+function howlongisthisline(x1, y1, x2, y2) {
+    const diffofxcoordinates = x2 - x1; //5-1=4
+    var squareofdiffofxcoordinates = diffofxcoordinates * diffofxcoordinates;// 4*4=16
+    let diffofycoordinates = y2 - y1;//8-2=6
+    let squareofdiffofycoordinates = Math.pow(diffofycoordinates, 2);//6**6=36
+    var sumofsquaresofdiffsofcoordinates = squareofdiffofxcoordinates + squareofdiffofycoordinates;//16+16=32
+    const squarerootofsumofsquaresofdiffsofcoordinates = sumofsquaresofdiffsofcoordinates ** .5; //32^0.5=5.656854249
+    return squarerootofsumofsquaresofdiffsofcoordinates;
+}
+
+expected = (16 + 36) ** 0.5;
+actual = howlongisthisline(1, 2, 5, 8); // テストする式
+testFunction(actual, expected);
+
+//完了

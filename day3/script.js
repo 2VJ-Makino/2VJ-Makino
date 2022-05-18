@@ -116,29 +116,48 @@
 //ナイトメア
 //平坦化：入れ子配列の入れ子を外して、一次元配列にする
 //Array.prototype.flatは使ってはいけない
-// function flatten(){
+function flatten(array) {
+    const result = [];
+    for (const element1 of array) {
+        if (typeof element1 === "object") {
+            for (const element2 of element1) {
+                result.push(element2);
+            }
+        } else {
+            result.push(element1);
+        }
+    }
+    console.log(result);
+    return result;
+}
 
+// flatten([[1, 2, 3], [4, 5, 6]]);
+// flatten([1, 2, 3, [4, 5, 6]]); // [1, 2, 3, 4, 5, 6]
+// flatten([[1], [2], [3], [4, 5, 6]]); // [1, 2, 3, 4, 5, 6]
 
+function flatten2(array) {
+    const result = [];
+    for (const element1 of array) {
 
-// }
+        console.log(element1);
+        console.log(typeof element1);
+        console.log(element1.length);
 
-// console.log(
-//   flatten([
-//     [1, 2, 3],
-//     [4, 5, 6],
-//   ])
-// ); // [1, 2, 3, 4, 5, 6]
-// console.log(flatten([1, 2, 3, [4, 5, 6]])); // [1, 2, 3, 4, 5, 6]
-// console.log(flatten([[1], [2], [3], [4, 5, 6]])); // [1, 2, 3, 4, 5, 6]
+        if (typeof element1 === "object") {
+            for (const element2 of element1) {
+                result.push(element2);
+            }
+        } else {
+            result.push(element1);
+        }
+    }
+    console.log(result);
+    return result;
+}
 
-// let arr =[[1, 2, 3], [4, 5, 6]];
-
-// const result = arr.reduce((acc, value) => acc.concat(value), []);
-// console.log(result);
-
-let numbers = [1,2,3,4,5,6,7,8,9];
-let result = numbers.reduce(function(a, b){
-    return a + b;
-})
-
-console.log(result);
+flatten2([
+    [1, [2, 3]],
+    [4],
+    [5],
+    [6, 7, 8]
+]); // [1, 2, 3, 4, 5, 6]

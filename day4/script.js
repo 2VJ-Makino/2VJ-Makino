@@ -23,6 +23,8 @@
 //   console.log(isMultipleOf( 6, 3 ));    // => true
 //   console.log(isMultipleOf( 10, 4 ));   // => false
 
+
+//dig-conditionals-intro.ja.md
 //基礎1
 // function simplePasswordLock(password) {
 //     if (password === "password") {
@@ -92,21 +94,21 @@
 // randomStopLight という名前の関数を宣言し、0 以上 10 以下のランダムな整数を生成します。
 // 生成した数字が 3 未満であれば "🔴Red" を返し、3 以上 6 以下であれば "🟡Yellow" を返し、
 // 6 より大きければ "🟢Green"を返すようにしてください。
-function randomStopLight(){
+function randomStopLight() {
 
-    let randomNumber = Math.floor( Math.random() * 11 );
+    let randomNumber = Math.floor(Math.random() * 11);
     console.log(randomNumber);
 
-    if ( randomNumber < 3 ) {
+    if (randomNumber < 3) {
         return "🔴Red";
-    } else if ( randomNumber >= 3 && randomNumber <= 6 ){
+    } else if (randomNumber >= 3 && randomNumber <= 6) {
         return "🟡Yellow";
     } else {
         return "🟢Green";
 
     }
 }
-console.log( randomStopLight());
+console.log(randomStopLight());
 
 
 
