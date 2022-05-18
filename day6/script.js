@@ -433,6 +433,7 @@ function testarryFunction(actual, expected) {
  * @param {Array<string>} arrayOfPeople - 人の名前の配列
  * @returns {number} 与えられた配列の長さ
  */
+<<<<<<< HEAD
 // function numberOfPeople(arrayOfPeople) {
 
 //     let i = 0;
@@ -534,6 +535,19 @@ function sort(array, typeOfSort) {
                     array[j] = temp;
                 }
             }
+=======
+function numberOfPeople(arrayOfPeople) {
+
+    let i = 0;
+
+    //無限ループで配列の先頭から要素の型チェック、"undefined"になったら抜ける
+    for (; ;) {
+        if (arrayOfPeople[i] === "undefined") {
+            break;
+        }
+        else {
+            i++;
+>>>>>>> e2e4ce6cd00873dbcc95501ca44e2c155ea978b2
         }
     }
     //クイックソート
@@ -542,7 +556,18 @@ function sort(array, typeOfSort) {
     }
     return array;
 }
+<<<<<<< HEAD
 
+=======
+
+actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin"]);
+expected = 4;
+testFunction(actual, expected);
+
+actual = numberOfPeople(["Alex", "Beau", "Carlos", "Dustin", "Mike"]);
+expected = 5;
+testFunction(actual, expected);
+>>>>>>> e2e4ce6cd00873dbcc95501ca44e2c155ea978b2
 
 let arrayToSort = [10, 9, 8, 7, 6, 5, 4, 2, 2, 1];
 
